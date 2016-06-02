@@ -6,15 +6,15 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"golang.org/x/net/html"
+	"io"
 	"os"
 	"strconv"
 	"strings"
 	"text/template"
 	"time"
-	"bytes"
-	"io"
 )
 
 const enexRawTmpl = `<?xml version="1.0" encoding="UTF-8"?>
@@ -35,10 +35,10 @@ const noteRawTmpl = `<note>
 var noteTmpl = template.Must(template.New("note").Parse(noteRawTmpl))
 
 type note struct {
-	Title string
-	Tags  string
-	Date  string
-	Url   string
+	Title       string
+	Tags        string
+	Date        string
+	Url         string
 	Description string
 }
 
